@@ -13,7 +13,7 @@ const Home = ({user, setUser}) => {
         const { data, error } = await supabase
             .from("posts")
             .select("*")
-            .order('created_at', { ascending: false }); // Default to latest posts
+            .order('created_at', { ascending: false });
 
         if (error) {
             console.error('Error fetching posts:', error);
@@ -33,7 +33,7 @@ const Home = ({user, setUser}) => {
 
     const handleSearch = (searchTerm) => {
         if (!searchTerm.trim()) {
-            setFilteredPosts(posts); // Reset to all posts if search is empty
+            setFilteredPosts(posts);
             return;
         }
 
@@ -64,28 +64,36 @@ const Home = ({user, setUser}) => {
     };
 
     return (
-        <div className='flex flex-col w-full h-full'>
+        <div className='flex flex-col w-full min-h-screen'>
             <Navbar onSearch={handleSearch} onSort={handleSort} />
-            <div className='flex flex-1 flex-col items-center'>
-                <div className='w-3/5 min-h-full mt-20 pt-10 shadow-2xl shadow-black flex flex-col items-center gap-y-10'>
-                    {filteredPosts ? (
-                        filteredPosts.length > 0 ? (
-                            filteredPosts.map((post, index) => (
+            <div className='flex flex-1 flex-col items-center px-4 sm:px-6 lg:px-8'>
+                <div className='w-full max-w-7xl min-h-full mt-20 pt-10 shadow-2xl shadow-black flex flex-col items-center gap-y-10'>
+                    {!filteredPosts && (
+                        <div className='flex items-center justify-center w-full p-8'>
+                            <div className='text-gray-500 text-lg animate-pulse'>
+                                Loading...
+                            </div>
+                        </div>
+                    )}
+
+                    {filteredPosts?.length === 0 && (
+                        <div className='flex flex-col items-center justify-center w-full p-8'>
+                            <div className='text-gray-500 text-lg text-center'>
+                                No posts found
+                            </div>
+                        </div>
+                    )}
+
+                    {filteredPosts?.length > 0 && (
+                        <div className='w-full flex flex-col items-center gap-y-10 px-4 sm:px-6 lg:px-8'>
+                            {filteredPosts.map((post, index) => (
                                 <div 
-                                    className='flex flex-col items-center w-4/5' 
                                     key={post.id || index}
+                                    className='w-full max-w-2xl transition-all duration-300 ease-in-out'
                                 >
                                     <Post post={post} user={user} />
                                 </div>
-                            ))
-                        ) : (
-                            <div className='text-gray-500 text-lg'>
-                                No posts found
-                            </div>
-                        )
-                    ) : (
-                        <div className='text-gray-500 text-lg'>
-                            Loading...
+                            ))}
                         </div>
                     )}
                 </div>
