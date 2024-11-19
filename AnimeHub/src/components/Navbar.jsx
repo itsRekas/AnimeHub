@@ -23,7 +23,7 @@ const Navbar = ({ onSearch, onSort, add }) => {
 
   return (
     <div className='flex fixed w-full justify-center items-center h-20 p-6 bg-[url(https://lh3.googleusercontent.com/RUg9YJuY2cPjh5znR5ZLqLJIBrm1CM2JuwCS1XP6g31ZDPa_NR--jR0JAum5qDbl2g5UKgBwM4SHSuyiWqjyd7VhBUI=s1280-w1280-h800)] text-white z-50 shadow-black shadow-2xl'>
-      <div className='flex justify-between items-center w-full sm:w-11/12 md:w-4/5 lg:w-full border-none'>
+      <div className='flex justify-between items-center w-full sm:w-11/12 sd:w-4/5 lg:w-4/5 border-none'>
         {/* Logo */}
         <Link to="/" className='hover:opacity-80 transition-opacity'>
           <h1 className='text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent'>
