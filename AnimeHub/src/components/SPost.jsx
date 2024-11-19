@@ -235,7 +235,7 @@ const SPost = ({user}) => {
             {/* Comments section */}
             <div className='mt-4 space-y-3'>
               {comments.map((comment, index) => (
-                <div key={index} className='flex flex-col sm:flex-row justify-between items-start sm:items-center py-2 border-b border-gray-700'>
+                <div key={index} className='flex flex-col sm:flex-row justify-between items-start sm:items-center py-2 border-b border-gray-700 p-4'>
                   <div className='flex gap-x-2 mb-1 sm:mb-0'>
                     <span className='font-bold text-sm sm:text-base'>{comment.user}:</span>
                     <span className='text-sm sm:text-base'>{comment.text}</span>

@@ -67,7 +67,7 @@ const Home = ({user, setUser}) => {
         <div className='flex flex-col w-full min-h-screen'>
             <Navbar onSearch={handleSearch} onSort={handleSort} />
             <div className='flex flex-1 flex-col items-center px-4 sm:px-6 lg:px-8'>
-                <div className='w-full max-w-7xl min-h-full mt-20 pt-10 shadow-2xl shadow-black flex flex-col items-center gap-y-10'>
+                <div className='w-full max-w-7xl min-h-screen mt-20 pt-10 shadow-2xl shadow-black flex flex-col items-center gap-y-10'>
                     {!filteredPosts && (
                         <div className='flex items-center justify-center w-full p-8'>
                             <div className='text-gray-500 text-lg animate-pulse'>

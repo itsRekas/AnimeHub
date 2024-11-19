@@ -53,9 +53,12 @@ const Post = ({ post, user }) => {
       if (error) {
         console.error('Error adding comment:', error);
       } else {
+        post.comments = updatedComments;
         setNewComment('');
+        parsedComments.push(JSON.parse(newCommentObj));
       }
     }
+    navigate('/');
   };
 
   const handlePost = () => {
