@@ -57,6 +57,7 @@ const Register = ({ user, setUser }) => {
                           min-h-[300px] rounded-3xl shadow-2xl shadow-black 
                           bg-gray-800 p-6 sm:p-8'>
                 <h2 className='text-xl sm:text-2xl font-semibold text-center mb-4'>
+                    
                     Register
                 </h2>
                 
